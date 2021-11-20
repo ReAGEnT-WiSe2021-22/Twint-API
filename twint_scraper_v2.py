@@ -16,7 +16,7 @@ def getKeywordsFromCSV(csv, party):
 # Search all tweets that write about a representative or the party itself
 # For example: "Christian Lindner" or "c_lindner" or "FDP"
 def searchPoliticalTweets(csv, mentionedParty):
-	out_filename = "political_tweets_" + mentionedParty + ".csv"
+	out_filename = "political_tweets_" + mentionedParty + ".json"
 	names = getKeywordsFromCSV(csv, mentionedParty)
 	print("List of keywords: ", names)
 
@@ -27,12 +27,12 @@ def searchPoliticalTweets(csv, mentionedParty):
 
 		c.Search = name
 		c.Limit = 1000
+		c.Retweets = False
+		c.Since = '2021-09-01'
+		c.Until = '2021-11-15'
 		c.Store_json = True
 		c.Hide_output = True
-		c.Retweets = False
 		c.Count = True
-		c.Since = '2021-10-01'
-		c.Until = '2021-11-01'
 		c.Output = out_filename
 
 		try:
