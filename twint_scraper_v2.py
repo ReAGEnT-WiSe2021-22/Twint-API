@@ -10,7 +10,7 @@ META_DUMP_FILENAME = "abgeordnete_meta.json"
 def getKeywordsFromCSV(csv, party):
 	rowsOfParty = csv[csv['party'] == party]
 	names = rowsOfParty[["screen_name", "full_name"]].values.flatten().tolist()
-	names.insert(0, party)
+	names.insert(0, party)  # also look for tweets with "party" as keyword, for example "CDU"
 	return names
 
 # Search all tweets that write about a representative or the party itself
@@ -26,12 +26,12 @@ def searchPoliticalTweets(csv, mentionedParty):
 		c = twint.Config()
 
 		c.Search = name
-		c.Limit = 100
-		c.Store_csv = True
+		c.Limit = 1000
+		c.Store_json = True
 		c.Hide_output = True
 		c.Retweets = False
 		c.Count = True
-		c.Since = '2021-06-01'
+		c.Since = '2021-10-01'
 		c.Until = '2021-11-01'
 		c.Output = out_filename
 
@@ -77,7 +77,7 @@ print("Tweet extraction started")
 
 for party in parties:
 	searchPoliticalTweets(csv_file, party)
-	print(f"{party} completed")
+	print(f"################################## {party} completed ##################################")
 
 print("Tweet extraction finished")
 
