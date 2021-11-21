@@ -16,8 +16,6 @@ def getKeywordsFromCSV(csv, party):
 # Search all tweets that write about a representative or the party itself
 # For example: "Christian Lindner" or "c_lindner" or "FDP"
 def searchPoliticalTweets(csv, mentionedParty):
-	if mentionedParty == "Die Grünen":
-		mentionedParty = "Die Gruenen"
 	out_filename = "political_tweets_" + mentionedParty + ".json"
 	names = getKeywordsFromCSV(csv, mentionedParty)
 	print("List of keywords: ", names)
@@ -47,35 +45,11 @@ def searchPoliticalTweets(csv, mentionedParty):
 
 	return out_filename
 
-# Currently not used
-def appendPartyToJson(filename, party):
-	if not os.path.isfile(filename):
-		print(f"File {filename} is empty!")
-		return
-
-	final_json = {}
-	tweets_list = []
-
-	with open(filename) as rf:
-		jsonObjects = rf.readlines()
-
-	for obj in jsonObjects:
-		tweet = json.loads(obj)
-		#pprint(tweet)
-		tweet.update({'partei' : party})
-		tweets_list.append(tweet)
-
-	with open(TWEETS_DUMP_FILENAME, 'a', encoding='utf-8') as wf:
-		for tweet in tweets_list:
-			json.dump(tweet, wf, ensure_ascii=False, indent=4)
-
-	os.remove(filename)
-
 
 ##### START PROGRAMM #####
 
 csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
-parties = ["CDU", "SPD", "AfD", "FDP", "B90/Die Grünen", "Die Linke"]
+parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]
 
 print("Tweet extraction started")
 
