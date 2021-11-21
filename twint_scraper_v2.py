@@ -6,7 +6,7 @@ META_DUMP_FILENAME = "abgeordnete_meta.json"
 
 
 # The CSV contains the following parties:
-# "CDU", "AfD", "Die Grünen", "SPD", "FDP", "Die Linke"
+# "CDU", "AfD", "Die_Gruenen", "SPD", "FDP", "Die Linke"
 def getKeywordsFromCSV(csv, party):
 	rowsOfParty = csv[csv['party'] == party]
 	names = rowsOfParty[["screen_name", "full_name"]].values.flatten().tolist()
