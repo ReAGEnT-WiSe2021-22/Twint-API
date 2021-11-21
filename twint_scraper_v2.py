@@ -27,11 +27,11 @@ def searchPoliticalTweets(csv, mentionedParty):
 
 		c.Search = name
 		# adjust limit as you like
-		c.Limit = 1000
+		c.Limit = 2000
 		c.Retweets = False
 		# adjust timespace as you like
-		c.Since = '2021-09-01'
-		c.Until = '2021-11-15'
+		c.Since = '2021-01-01'
+		c.Until = '2021-08-31'
 		c.Store_json = True
 		c.Hide_output = True
 		c.Count = True
@@ -50,7 +50,6 @@ def searchPoliticalTweets(csv, mentionedParty):
 
 csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
 parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]
-parties = ["Die_Gruenen"]
 
 
 print("Tweet extraction started")
