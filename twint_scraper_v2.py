@@ -27,11 +27,11 @@ def searchPoliticalTweets(csv, mentionedParty):
 
 		c.Search = name
 		# adjust limit as you like
-		c.Limit = 2000
+		#c.Limit = 2000
 		c.Retweets = False
 		# adjust timespace as you like
 		c.Since = '2021-01-01'
-		c.Until = '2021-08-31'
+		c.Until = '2021-02-28'
 		c.Store_json = True
 		c.Hide_output = True
 		c.Count = True
