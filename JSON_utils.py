@@ -1,5 +1,9 @@
 import json, os, pandas
 
+# utils class for historical tweets
+# all tweets that were written by German representatives should be removed
+# also for the MyTweet-Class a attribute "party" (="parteilos") will be added
+
 # get List of user_ids from German representatives
 def getUserIds():
     csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
