@@ -1,8 +1,4 @@
 import twint, json, os, time, pandas
-from pprint import pprint
-
-TWEETS_DUMP_FILENAME = "abgeordnete_tweets.json"
-META_DUMP_FILENAME = "abgeordnete_meta.json"
 
 
 # The CSV contains the following parties:
