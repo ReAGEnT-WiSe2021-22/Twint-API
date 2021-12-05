@@ -12,8 +12,8 @@ def getUserIds():
 
 
 # filter all tweets that are written from German representatives
-# append party: "parteilos" so we can use the tweets for the MyTweet.scala class
-def prepareJSON(filename_in, filename_out):
+# append party so we can use the tweets for the MyTweet.scala class
+def prepareJSON(filename_in, filename_out, party):
     if not os.path.isfile(filename_in):
         print(f"File {filename_in} is empty!")
         return
@@ -25,7 +25,7 @@ def prepareJSON(filename_in, filename_out):
 
     for obj in json_objects:
         tweet = json.loads(obj)
-        tweet.update({'partei': "parteilos"})
+        tweet.update({'partei': party})
         tweets_list.append(tweet)
 
     id_list = getUserIds()
@@ -43,10 +43,10 @@ def prepareJSON(filename_in, filename_out):
 
 ##### START PROGRAMM #####
 
-parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]
+parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die_Linke"]
 
 for party in parties:
     prepareJSON("scraped_tweets\political_tweets_"+party+"_2021.json",
-                "scraped_tweets\political_tweets_"+party+"_2021_cleaned.json")
+                "scraped_tweets\political_tweets_"+party+"_2021_cleaned.json", party)
 
 
