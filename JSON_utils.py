@@ -2,7 +2,7 @@ import json, os, pandas
 
 # utils class for historical tweets
 # all tweets that were written by German representatives should be removed
-# also for the MyTweet-Class a attribute "party" (="parteilos") will be added
+# also for the MyTweet-Class a attribute "partei" will be added
 
 # get List of user_ids from German representatives
 def getUserIds():
@@ -38,7 +38,6 @@ def prepareJSON(filename_in, filename_out, party):
     with open(filename_out, 'w', encoding='utf-8') as wf:
         for tweet in tweets_list:
             json.dump(tweet, wf, ensure_ascii=False, indent=4)
-
 
 
 ##### START PROGRAMM #####

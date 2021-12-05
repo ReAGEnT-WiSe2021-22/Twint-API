@@ -23,3 +23,5 @@ There are several names of German representatives in the file `Bundestag_Namen_U
 The tweets are stored separately according to the party of the German representatives
 
 Like in the first scraper you can modify the data range.
+
+Merge all JSON files from one party to one file. Then you can use `JSON_utils.py` to clean the tweets.
