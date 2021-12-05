@@ -1,6 +1,5 @@
 import twint, json, os, time, pandas
 
-
 # The CSV contains the following parties:
 # "CDU", "AfD", "Die_Gruenen", "SPD", "FDP", "Die Linke"
 def getKeywordsFromCSV(csv, party):
