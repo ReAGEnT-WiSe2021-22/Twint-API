@@ -58,6 +58,7 @@ def appendPartyToJson(filename, party):
 
 	for obj in jsonObjects:
 		tweet = json.loads(obj)
+		print("type: ", type(tweet))
 		#pprint(tweet)
 		tweet.update({'partei' : party})
 		tweets_list.append(tweet)
