@@ -1,5 +1,6 @@
 import json, os, pandas
 
+
 # utils class for historical tweets
 # all tweets that were written by German representatives should be removed
 # also for the MyTweet-Class a attribute "partei" will be added
@@ -18,7 +19,7 @@ def prepareJSON(filename_in, filename_out, party):
         print(f"File {filename_in} is empty!")
         return
 
-    tweets_list = []
+    tweets_list = []  # list of dictionaries
 
     with open(filename_in, encoding="utf") as rf:
         json_objects = rf.readlines()
@@ -37,7 +38,8 @@ def prepareJSON(filename_in, filename_out, party):
 
     with open(filename_out, 'w', encoding='utf-8') as wf:
         for tweet in tweets_list:
-            json.dump(tweet, wf, ensure_ascii=False, indent=4)
+            wf.write(json.dumps(tweet, ensure_ascii=False))
+            wf.write("\n")
 
 
 ##### START PROGRAMM #####
@@ -45,7 +47,5 @@ def prepareJSON(filename_in, filename_out, party):
 parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die_Linke"]
 
 for party in parties:
-    prepareJSON("scraped_tweets\political_tweets_"+party+"_2021.json",
-                "scraped_tweets\political_tweets_"+party+"_2021_cleaned.json", party)
-
-
+    prepareJSON("scraped_tweets\political_tweets_" + party + "_2021.json",
+                "scraped_tweets\political_tweets_" + party + "_2021_cleaned.json", party)
