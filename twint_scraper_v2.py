@@ -1,3 +1,5 @@
+# Created By: Schander, 572893
+
 import twint, json, os, time, pandas
 
 # The CSV contains the following parties:
@@ -25,8 +27,8 @@ def searchPoliticalTweets(csv, mentionedParty):
 		#c.Limit = 2000
 		c.Retweets = False
 		# adjust timespace as you like
-		c.Since = '2021-01-01'
-		c.Until = '2021-02-28'
+		c.Since = '2021-11-15'
+		c.Until = '2021-12-31'
 		c.Store_json = True
 		c.Hide_output = True
 		c.Count = True
@@ -41,7 +43,7 @@ def searchPoliticalTweets(csv, mentionedParty):
 	return out_filename
 
 
-##### START PROGRAMM #####
+##### START PROGRAM #####
 
 csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
 parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]

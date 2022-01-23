@@ -1,19 +1,20 @@
+# Created By: Schander, 572893
+
 import json, os, pandas
 
+# Utils class for historical tweets
+# All tweets that were written by German representatives should be removed
+# Also for the TrainingTweet-Class a attribute "partei" will be added
 
-# utils class for historical tweets
-# all tweets that were written by German representatives should be removed
-# also for the MyTweet-Class a attribute "partei" will be added
-
-# get List of user_ids from German representatives
+# Get List of user_ids from German representatives
 def getUserIds():
     csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
     id_list = csv_file["user_id"]
     return id_list.values.tolist()
 
 
-# filter all tweets that are written from German representatives
-# append party so we can use the tweets for the MyTweet.scala class
+# Filter all tweets that are written from German representatives
+# Append party so we can use the tweets for the MyTweet.scala class
 def prepareJSON(filename_in, filename_out, party):
     if not os.path.isfile(filename_in):
         print(f"File {filename_in} is empty!")
@@ -42,10 +43,10 @@ def prepareJSON(filename_in, filename_out, party):
             wf.write("\n")
 
 
-##### START PROGRAMM #####
+##### START PROGRAM #####
 
 parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die_Linke"]
 
 for party in parties:
-    prepareJSON("scraped_tweets\political_tweets_" + party + "_2021.json",
-                "scraped_tweets\political_tweets_" + party + "_2021_cleaned.json", party)
+    prepareJSON("scraped_tweets\winter_2021\political_tweets_" + party + ".json",
+                "scraped_tweets\political_tweets_" + party + "_winter_2021_cleaned.json", party)

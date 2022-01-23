@@ -24,4 +24,8 @@ The tweets are stored separately according to the party of the German representa
 
 Like in the first scraper you can modify the data range.
 
-Merge all JSON files from one party to one file. Then you can use `JSON_utils.py` to clean the tweets.
+With `JSON_utils.py` you can clean the data by removing all tweets written by German representatives.
+
+Also the party of each tweet will be added to the json-object.
+
+Caution: You may have to adjust the filepath in `JSON_utils.py`
