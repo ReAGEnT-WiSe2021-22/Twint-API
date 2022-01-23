@@ -44,8 +44,8 @@ def searchPoliticalTweets(csv, mentionedParty):
 ##### START PROGRAMM #####
 
 csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
-parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]
-
+#parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]
+parties = ["Die_Gruenen", "Die Linke"]
 
 print("Tweet extraction started")
 
