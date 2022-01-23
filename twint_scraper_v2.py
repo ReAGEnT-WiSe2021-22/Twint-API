@@ -1,3 +1,5 @@
+# Created By: Schander, 572893
+
 import twint, json, os, time, pandas
 
 # The CSV contains the following parties:
@@ -41,7 +43,7 @@ def searchPoliticalTweets(csv, mentionedParty):
 	return out_filename
 
 
-##### START PROGRAMM #####
+##### START PROGRAM #####
 
 csv_file = pandas.read_csv("Bundestag_Namen_Usernamen_Fraktion.csv", delimiter=";", engine="python")
 parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die Linke"]
