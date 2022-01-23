@@ -47,5 +47,5 @@ def prepareJSON(filename_in, filename_out, party):
 parties = ["CDU", "SPD", "AfD", "FDP", "Die_Gruenen", "Die_Linke"]
 
 for party in parties:
-    prepareJSON("scraped_tweets\political_tweets_" + party + "_2021.json",
-                "scraped_tweets\political_tweets_" + party + "_2021_cleaned.json", party)
+    prepareJSON("scraped_tweets\winter_2021\political_tweets_" + party + ".json",
+                "scraped_tweets\political_tweets_" + party + "_winter_2021_cleaned.json", party)
